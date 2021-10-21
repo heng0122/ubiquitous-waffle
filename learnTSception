@@ -1,0 +1,9 @@
+cd to directory of folder that has code: 
+C:\Users\glady\OneDrive\Desktop\TSception-main\TSception-main\code
+
+i have installed the required tools as in the 'requirements.txt'
+
+now to download DEAP dataset but the python version:
+http://www.eecs.qmul.ac.uk/mmv/datasets/deap/index.html
+
+eventually need to modify: 'load_data_per_subject()' in the prepare_data_DEAP.py
