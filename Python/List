@@ -1,0 +1,4 @@
+Reverse list:
+
+https://www.scaler.com/topics/how-to-reverse-a-list-in-python/
+(NOTE: list.reverse() reverses the element in the same list. It does not create a new list and therefore if you print(list.reverse()), it will show None)
