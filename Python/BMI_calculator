@@ -1,0 +1,108 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Mon Apr 10 01:53:15 2023
+
+Exercise 27: Calculate BMI.
+
+@author: gladys
+"""
+
+def calculateBMI(c,w,h):
+    # c - choice
+    # w - weight
+    # h - height
+    
+    if c == '1':
+        BMI = (w / (h * h)) * 703
+    
+    if c == '2':
+        BMI = w / (h * h)
+    
+    return BMI
+
+def idealWeight(bmi_value,i,h1):
+    # i - choice
+    # h1 - height
+
+    if i == '1':
+        ideal_weight = (bmi_value/703) * (h1 * h1)
+        
+    if i == '2':
+        ideal_weight = bmi_value * (h1 * h1)
+    
+    return ideal_weight    
+
+def weight2lose(j,w1,g): 
+    # w1 - weight
+    # g - goal
+    
+    ToLose = w1 - g
+    
+    if ToLose < 0: # for underweight category
+        ToLose = -1 * ToLose
+    
+    if j == '1':
+        lose_statement = str(ToLose) + 'pounds'
+ 
+    if j == '2':
+        lose_statement = str(ToLose) + 'kg'
+    
+    return lose_statement
+
+def main():
+    print("Hello! This is the BMI Calculator.")
+    name = input("Please enter your name: ")
+    print("Hi", name, "!")
+    print("To calculate your BMI in inches and pounds, press 1.")
+    print("To calculate your BMI in meters and kilograms, press 2")
+    choice = input("Please select your option: ")
+
+    check_one = 0
+        
+    if choice == '1':
+        while check_one == 0:
+            try:
+                height = float(input("Please enter your height in inches: "))
+                weight = float(input("Please enter your weight in pounds: "))
+                check_one = 1
+            except:
+                print("Invalid input. Please try again with numeric values.")
+    
+    check_two = 0
+                    
+    if choice == '2':
+        while check_two == 0:
+            try:
+                height = float(input("Please enter your height in meters: "))
+                weight = float(input("Please enter your weight in kilograms: "))
+                check_two = 1
+            except:
+                print("Invalid input. Please try again with numeric values.")
+ 
+    user_BMI = calculateBMI(choice,weight,height)
+    
+    if user_BMI <= 18.5:
+        comment = 'You are underweight.'
+        
+    if user_BMI > 18.5 and user_BMI <= 25:
+        comment = 'Congrats! You are of a healthy weight range.'
+        
+    if user_BMI > 25 and user_BMI <= 30:
+        comment = 'Oops, you are overweight.'
+        
+    if user_BMI > 30:
+        comment = 'You are of the obesity range!'
+    
+    min_goal = idealWeight(18.5,choice,height)
+    max_goal = idealWeight(25,choice,height)
+    
+    print("Hi", name, ", your BMI is", "%.2f" % user_BMI)
+    print(comment)
+    print("Your ideal weight range is", "%.2f" % min_goal, "to", "%.2f" % max_goal)
+    
+    if user_BMI <= 18.5:
+        print("Please try to gain", weight2lose(choice,weight,max_goal), "to reach BMI of 25.")
+    if user_BMI > 25:
+        print("Please try to lose", weight2lose(choice,weight,max_goal), "to reach BMI of 25.")
+    
+main()
