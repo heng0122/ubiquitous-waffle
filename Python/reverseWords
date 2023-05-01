@@ -1,0 +1,32 @@
+# Chapter 5 Exercise 18
+# reverseWords("hi there how are you") will return "ih ereht woh era uoy"   
+
+def reverseWords(strg):
+    # strg = sentence given     
+
+    split_list = strg.split()   
+    final_list = []
+    final_strg = ''
+
+    for element in split_list:
+        final_list.append(reverseEachWord(element))
+    
+    for element in final_list:
+        final_strg = final_strg + element + ' '
+        
+    return final_strg.strip()
+    
+def reverseEachWord(w):
+    # w = word in the list
+    new_word = ''
+    i = len(w)
+
+    for element in w:
+        new_word = new_word + w[i-1]
+        i = i - 1
+    
+    return new_word
+
+def main():
+    orig_sentence = input("Please type a sentence: ") 
+    print("The reverse of ", orig_sentence, "is", reverseWords(orig_sentence))
