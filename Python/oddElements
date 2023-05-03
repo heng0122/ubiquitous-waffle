@@ -1,0 +1,20 @@
+# %% Chapter 5 Exercise 20.
+# This function returns the elements of odd indexes in a given list.
+
+def oddElements(l):
+    # l = list of integers
+    
+    split_list = l.split()
+    end = len(split_list)   
+    odd_list = []
+
+    for i in range(1, end):
+        if i % 2 != 0:
+            odd_list.append(split_list[i])
+    
+    return odd_list
+
+def main():
+    print("Hello! This program returns the odd elements in a given list.")
+    lst = input("Please enter a list of integers. Press space to separate each integer and enter when you have completed the list: ")
+    print("The odd elements in the list", lst.split(), "are", oddElements(lst))
