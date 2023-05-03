@@ -1,0 +1,40 @@
+# %% Chapter 5 Exercise 17.
+# Returns the sum of all integers between 2 given integers inclusive.
+
+def sumRange(i,j):
+    
+    if j > i:
+        return summing(i,j)
+    if i == j:
+        return summing(i,i) + summing(i,i)         
+    else:
+        return summing(j,i)
+    
+    
+def summing(a,b):
+    # a = first integer
+    # b = second integer
+        
+    total = 0
+    for element in range(a,b+1):
+        total = total + element
+
+    return total
+
+def main():
+    x = input("Please enter the first integer: ")  
+    y = input("Please enter the second integer: ")
+
+    integer_check = 0
+
+    while integer_check == 0:
+        try: 
+            x = int(x)
+            y = int(y)
+            integer_check = 1
+        except:
+            print("Invalid input. Please enter an integer.")
+            x = input("Please enter the first integer: ")
+            y = input("Please enter the second integer: ")
+
+    print("The sum of all integers between", x, "and", y, "is", sumRange(x,y))
