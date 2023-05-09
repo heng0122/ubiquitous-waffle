@@ -1,0 +1,64 @@
+# %% Chapter 5 Exercise 21. 
+# Computes dot product of two lists of numbers
+
+def dotProduct(lst1, lst2):
+    # lst1 = input from first_lst
+    # lst2 = input from second_lst
+    # lst1 and lst2 have same length
+    
+    total = 0
+    
+    for i in range(len(lst1)):
+        multipled_value = lst1[i] * lst2[i]
+        total = total + multipled_value
+    
+    return total
+
+def main():
+    lst_check = 0
+    
+    while lst_check == 0:
+        
+        first_lst = []
+        first_status = 0
+        
+        while first_status == 0:
+            x = input("Please enter the numbers for the first list. Press 'Enter' to input the next number. Simply press 'Enter' to end the first list: ")
+            
+            try:
+                x = float(x)
+                first_lst.append(x)
+            except:
+                print("Error. You did not enter a number. Please try again.")
+                
+            if x == '':
+                first_status = 1
+        
+        print("The numbers in the first list are:", first_lst)
+        print("There are", len(first_lst), "numbers in the first list.")
+        
+        second_lst = []
+        second_status = 0
+        
+        while second_status == 0:
+            y = input("Now, enter the numbers for the second list. Note that they should be of the same length: ")
+            
+            try:
+                y = float(y)
+                second_lst.append(y)
+            except:
+                print("Error. You did not enter a number for the second list. Please try again.")
+                
+            if y == '':
+                second_status = 1
+        
+        print("The numbers in the second list are:", second_lst)
+        print("There are", len(second_lst), "numbers in the second list.")
+        
+        if len(first_lst) == len(second_lst):
+            print("Good job! The lists are of the same length.")
+            lst_check = 1
+        else:
+            print("Oh no, the lists are of different lengths. Please try again.")
+    
+    print("The dot product of", first_lst, "and", second_lst, "is", dotProduct(first_lst, second_lst))
