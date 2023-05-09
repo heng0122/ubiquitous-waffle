@@ -1,0 +1,35 @@
+# %% Chapter 5 Exercise 19. 
+# Note: if you l.split(a list of integers), each integer takes up 1 element count. 
+# If you l.split(a list of words), each WORD takes up 1 element count. 
+    
+def oddCharacters(l):
+    # l = sentence given
+    end = len(l)
+    final = ''
+    
+    for i in range(1, end):
+        if i % 2 != 0:
+            final = final + l[i]
+        
+    return final
+
+def main():
+    print("Hello! This program returns a string containing only the odd characters of the given string.")
+    lst = input("Please enter a sentence: ")
+    print("The odd characters of", lst, "are:", oddCharacters(lst))
+
+# Using counter
+def odd_Characters(l):
+    # l = sentence given
+    new = ''    
+    count = 0
+    
+    for element in l:
+        if count % 2 == 1: 
+            new = new + element
+        count = count + 1
+    
+    return new
+    
+lst = input("Please enter a sentence: ")
+print("The odd characters of", lst, "are:", odd_Characters(lst))
