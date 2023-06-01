@@ -1,0 +1,95 @@
+# %% Chapter 5 Exercise 23. 
+# Each grade is multipled by number of credits.
+
+def computeWeightedAverage(a,b):
+    # a is grade_lst
+    # b is credit_lst
+
+    # need to transform grade to credit 
+    grade_point_list = []
+    
+    for grade_letter in a:
+        
+        # options for grade input: A+ to F 
+        if grade_letter == 'A+':
+            grade_point = 5.0
+     
+        elif grade_letter == 'A':
+            grade_point = 5.0
+        
+        elif grade_letter == 'A-':
+            grade_point = 4.5
+        
+        elif grade_letter == 'B+':
+            grade_point = 4.0
+        
+        elif grade_letter == 'B':
+            grade_point = 3.5
+    
+        elif grade_letter == 'B-':
+            grade_point = 3.0
+    
+        elif grade_letter == 'C+':
+            grade_point = 2.5
+    
+        elif grade_letter == 'C':
+            grade_point = 2.0
+        
+        elif grade_letter == 'D+':
+            grade_point = 1.5
+    
+        elif grade_letter == 'D':
+            grade_point = 1.0
+        
+        elif grade_letter == 'F':
+            grade_point = 0
+
+        grade_point_list.append(grade_point)
+    
+    # Calculate sum of credit * grade
+    total = 0    
+    i = 0 # initialize counter for b, which is credit_lst
+    for element in grade_point_list:
+        total = total + element * b[i]
+        i = i + 1
+    
+    # Calculate sum of credits
+    all_credits = 0
+    for element in b:
+        all_credits = all_credits + element
+        
+    # Final answer
+    GPA = total / float(all_credits)
+    GPA = round(GPA, 2)
+    
+    return GPA
+        
+print("This program computes your GPA.")
+print("Please enter your completed courses.")
+print("Terminate your entry by entering 0 credits.")
+
+grade_lst = []
+credit_lst = []
+
+credit_status = 1
+
+while credit_status > 0:
+
+    user_credit = input("Credits? ")
+
+    try:
+        user_credit = int(user_credit)
+        
+        if user_credit > 0:
+            credit_lst.append(user_credit)
+        
+        if user_credit == 0:
+            break
+    
+        user_grade = input("Grade? ")
+        grade_lst.append(user_grade)
+    
+    except:
+        print("Invalid input. Please enter an integer.")
+
+print("Your GPA is", computeWeightedAverage(grade_lst,credit_lst))
