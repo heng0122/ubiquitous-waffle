@@ -1,0 +1,5 @@
+# Explore CMA:
+
+A model-based causal mediation analysis (CMA) was performed to determine whether spectral complexity manipulation (i.e., original versus neutral condition) had a direct effect on neural entrainment or whether neural entrainment was mediated by participants’ arousal rating. 
+
+Analysis was performed using the Mediation package for CMA analysis of the R software (Tingley et al. 2014).
