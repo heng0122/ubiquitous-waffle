@@ -1,0 +1,47 @@
+# %% Practice 6.1 - create Help and About
+    
+import sys
+import tkinter
+
+def main():
+    root = tkinter.Tk() # set to root Tk window
+    # root.geometry('400x200')
+
+    root.title("Reminder!") # sets title of window
+    root.resizable(width = True, height = True) # makes window non-resizable if False
+   
+    # Adds frame (Example 6.3)
+    mainFrame = tkinter.Frame(root, highlightbackground = "blue", highlightthickness = 2, borderwidth = 50, padx = 5, pady = 5, bd = 5)
+    mainFrame.pack()
+    
+    # Add text widget (Example 6.4)
+    note = tkinter.Text(mainFrame, bg = "yellow", width = 20, height = 3)
+    note.pack()
+    note.insert('1.0','Hello!')
+     
+    def quit():
+        root.destroy()
+
+    def help():
+        note.insert('1.0', 'About was Selected')
+
+    bar = tkinter.Menu(root)
+    
+    # Create File Menu
+    fileMenu = tkinter.Menu(bar, tearoff = 0) # this creates File
+    fileMenu.add_command(label = "Exit", command = quit) 
+        
+    # Create Help Menu
+    helpMenu = tkinter.Menu(bar, tearoff = 0)
+    helpMenu.add_command(label = "About", command = help)
+    
+    # Adds options to the main Menu
+    bar.add_cascade(label = "File", menu = fileMenu)
+    bar.add_cascade(label = "Help", menu = helpMenu) # remember to select corresponding menu
+    
+    root.config(menu = bar)
+
+    tkinter.mainloop() # calls Tk event dispatch loop to process events from the windowing application
+
+if __name__ == "__main__":
+    main()
