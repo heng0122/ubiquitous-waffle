@@ -1,0 +1,45 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Wed Jun  7 19:26:42 2023
+
+Exercise 3: Calculate area of a room
+Enter width in meters (as float)
+Enter length in meters (as float)
+Compute and display area of the room
+
+"""
+
+def ComputeArea(x,y):
+    # x = width
+    # y = length
+    
+    ans = x * y
+    
+    return ans
+
+room_width_check = 0
+
+while room_width_check == 0:
+
+    room_width = input("Please enter the width of the room in meters: ")
+
+    try:
+        room_width = float(room_width)
+        break
+    except:
+        print("Invalid input. Please try again.")
+
+room_length_check = 0
+
+while room_length_check == 0:
+
+    room_length = input("Please enter the length of the room in meters: ")
+
+    try:
+        room_length = float(room_length)
+        break
+    except:
+        print("Invalid input. Please try again.")
+
+print("The area of the room is", ComputeArea(room_width, room_length), "squared meters.")
+ 
