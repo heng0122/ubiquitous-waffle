@@ -1,0 +1,43 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Mon Jun 26 14:35:46 2023
+
+This program evaluates if an input alphabet is a vowel or consonant, with exceptions made to 'y' which is sometimes a vowel and sometimes a consonant.
+
+@author: gladys
+"""
+
+num_check = 0
+
+while num_check == 0:
+
+    letter = input("Please enter an alphabet: ")
+
+    # Check if input contains any number
+    if letter.isnumeric() == True:
+        print("Invalid input. Please try again. ")
+    else:
+        break
+
+length_check = 0
+
+while length_check == 0:
+    # Convert to lowercase
+    letter = letter.lower()
+
+    # Check for only one alphabet input
+    if len(letter) > 1:
+        print("You have entered more than one alphabet. Please try again.")
+    else:
+        break
+        
+vowel_list = ['a', 'e', 'i', 'o', 'u']
+
+if letter in vowel_list:
+    print("The letter entered:", letter, ", is a vowel.")
+    
+elif letter == 'y':
+    print("Sometimes 'y' is a vowel. Sometimes 'y' is a consonant.")
+    
+else:
+    print("The letter entered:", letter, ", is a consonant.")
