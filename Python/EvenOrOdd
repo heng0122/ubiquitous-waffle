@@ -1,0 +1,20 @@
+print("Hello! This program reads an integer and evaluate if it is even or odd.")
+
+int_check = 0
+
+while int_check == 0:
+
+    x = input("Please enter an integer: ")
+
+    try:
+        x = int(x)
+        break
+    
+    except:
+        print("You did not enter an integer. Please try again.")
+    
+if x % 2 == 0:
+    print("The integer", x, "is an even integer.")
+
+else:
+    print("The integer", x, "is an odd integer.")
