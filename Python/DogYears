@@ -1,0 +1,33 @@
+"""
+Created on Mon Jun 26 13:48:23 2023
+
+This program converts number of human years to dog years with the following conversion:
+    
+    First two human years as 10.5 dog years
+    Subsequent additional human year as 4 dog years
+
+@author: gladys
+"""
+
+years_check = 0
+
+while years_check == 0:
+    
+    human = float(input("Please enter the number of human years: "))
+
+    if human < 0:
+        print("You have entered a negative number. Please try again.")
+    else:
+        break
+
+if human <= 2:
+    dog = human * 10.5
+
+else:
+    # Calculate additional years to multiply by 4
+    additional_human_years = human - 2
+    additional_dog_years = additional_human_years * 4
+    # Sum additional dog years with original years
+    dog = additional_dog_years + (2 * 10.5)
+
+print(human, "human years is equivalent to", dog, "dog years.")
