@@ -1,0 +1,83 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Tue Aug  1 16:02:43 2023. Exercise 115: Pig Latin
+
+If word begins with consonant: computer -> omputercay
+- Find alphabets till first vowel
+- Transfer these alphabets to the end of word
+- Add 'ay'
+
+If word begins with vowel: office -> officeway
+- Just add 'way'
+
+Assume friendly input: all lowercase letters with spaces
+
+@author: gladys
+"""
+
+text = input("Please enter a line of text: ")
+
+# Convert str to list of words
+text_lst = text.split()
+
+# Initialize converted list
+new_lst = []
+
+# Initialize lists and variables for Vowel Condition
+vowel_list = ['a', 'e', 'i', 'o', 'u']
+vowel_new_word = ''
+
+# Loop through each word in text_lst
+for word in text_lst:
+    
+    # Vowel Condition
+    if word[0] in vowel_list:
+    
+        vowel_new_word = word + 'way'
+        new_lst.append(vowel_new_word)
+
+    # Consonant Condition for word that contains vowel
+    else:
+        word_list = list(word)
+        new_word_list = []
+        standard_add = list('ay')
+        i = -1 # starts with -1 because first element index is 0
+        index_of_first_vowel = 0        
+    
+        # Identify the index of first vowel
+        for element in word_list:
+        
+            i = i + 1      
+            if element in vowel_list:
+                break
+    
+        # Assign i calculated from loop above to index of first vowel 
+        index_of_first_vowel = i
+    
+        # Alphabets before first vowel
+        # Using list[:index] already include first alphabet.
+        # Because list till last index does not include that itself, it already directs to index before first vowel.
+        alphabets_to_move = word_list[:index_of_first_vowel]
+    
+        # Form new word list.
+        # Using list[index:] already include to end of word
+        new_word_list = word_list[index_of_first_vowel:] + alphabets_to_move + standard_add   
+        
+        # Convert list to string
+        final_word = ''
+    
+        for letter in new_word_list:
+        
+            final_word = final_word + letter
+
+        # Append this word to the converted list
+        new_lst.append(final_word)
+
+# Convert new_lst to text
+final_text = ''
+
+for nw in new_lst:
+    
+    final_text = final_text + nw + ' '
+
+print("The Pig Latin conversion of:", text, ", is:", final_text)
