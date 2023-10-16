@@ -1,0 +1,26 @@
+# -*- coding: utf-8 -*-
+"""
+Exercise 5: Bottle Deposits
+
+Drink containers holding one liter or less have $0.10 deposit
+Drink containers holding more than one liter have $0.25 deposit
+
+Read the number of containers of each size from the user
+Compute and display the refund that will be received for returning those containers
+
+"""
+
+print("Hi there! This program will calculate the refund you will receive for returning the drink containers.")
+
+drink_1_less = input("Please enter the no. of drink containers holding one liter or less: ")
+drink_1_more = input("Please enter the no. of drink containers holding more than one liter: ")
+
+drink_1_less_deposit = 0.10
+drink_1_more_deposit = 0.25
+
+refund_1 = int(drink_1_less) * drink_1_less_deposit
+refund_2 = int(drink_1_more) * drink_1_more_deposit
+
+total_refund = refund_1 + refund_2
+
+print("Your total refund is $%.2f." % total_refund)
