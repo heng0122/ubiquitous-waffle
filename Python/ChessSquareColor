@@ -1,0 +1,60 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Sun Oct 15 16:52:32 2023
+
+Exercise 45: What color is the square on a chess board
+
+Start with black: columns a, c, e, g
+Start with white: columns b, d, f, h
+
+Try with check for valid input
+
+@author: gladys.heng
+"""
+
+all_char = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h']
+all_num = list(range(1, 9, 1))
+
+main_check = False
+
+while main_check == False:
+    
+    char_check = False
+    num_check = False
+    
+    user_position = input("Please enter a position on the chessboard: ")
+    target_pos = int(user_position[1])
+    
+    # Check for character to be in list
+    if user_position[0] not in all_char:
+        print("Invalid input. Please try again.")
+    else:
+        char_check = True
+
+    # Check for number to be in list
+    if target_pos not in all_num:
+        print("Invalid input. Please try again.")    
+    else:
+        num_check = True
+        
+    # Both conditions satisfied
+    if char_check and num_check == True:
+        break
+        
+black_col = ['a', 'c', 'e', 'g']
+
+if user_position[0] in black_col:
+        
+    if target_pos % 2 == 1:
+        color = 'black'   
+    elif target_pos % 2 == 0:
+        color = 'white'     
+        
+else: 
+    
+    if target_pos % 2 == 1:
+        color = 'white'       
+    elif target_pos % 2 == 0:
+        color = 'black'
+
+print("The square", user_position, "is", color, ".")
